@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="stylish-finn for appworks" />
+    <title>stylish</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-HY63QKMKR6"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-HY63QKMKR6");
+    </script>
+  </head>
+  <body>
+    <div class="content">
+      <div class="desktop__header">
+        <header>
+          <div class="header__container">
+            <a href="home.html" class="logo"
+              ><img class="header__logo" src="./images/logo.png" alt=""
+            /></a>
+            <div class="nav">
+              <a class="nav__container" href="?category=women">
+                <span class="nav__link" id="nav__women">女裝</span>
+              </a>
+              <a class="nav__container" href="?category=men">
+                <span class="nav__link" id="nav__men">男裝</span>
+              </a>
+              <a class="nav__container" href="?category=accessories">
+                <span class="nav__link" id="nav__acc">配件</span>
+              </a>
+            </div>
+          </div>
+          <div class="header__container">
+            <div class="search">
+              <img class="search__logo" src="./images/search.png" alt="" />
+              <input class="search__input" id="searchInput" type="text" />
+            </div>
+            <div class="cart__container">
+              <a href="/cart"
+                ><img class="cart" src="./images/cart.png" alt=""
+              /></a>
+              <p class="cart__amount">0</p>
+            </div>
+            <a class="member" href="/profile"
+              ><img src="./images/member.png" alt=""
+            /></a>
+          </div>
+        </header>
+      </div>
+      <div class="mobile__header">
+        <input class="header__checkbox" type="checkbox" id="switch-input" />
+        <div class="mobille__header__container">
+          <div class="mobile__header__default">
+            <div class="header__logo__container">
+              <label for="switch-input">
+                <img
+                  class="header__search__logo"
+                  src="./images/search.png"
+                  alt=""
+                />
+              </label>
+              <img class="header__logo" src="./images/logo.png" alt="" />
+            </div>
+          </div>
+          <div class="mobile__header__searchbar">
+            <input class="mobile__header__input" id="searchInput" type="text" />
+            <label id="search__logo">
+              <img
+                class="mobile__header__searchbarlogo"
+                src="./images/search.png"
+                alt=""
+              />
+            </label>
+          </div>
+        </div>
+        <div class="mobile__header__searchbar">
+          <input
+            class="mobile__header__input"
+            id="searchInput"
+            type="text"
+            placeholder="西裝"
+          />
+          <label for="switch-input">
+            <img
+              class="mobile__header__searchbarlogo"
+              src="./images/search.png"
+              alt=""
+            />
+          </label>
+        </div>
+        <div class="header__navs">
+          <a class="header__nav" id="nav__women" href="?category=women">女裝</a>
+          <span class="header__nav__line"></span>
+          <a class="header__nav" id="nav__men" href="?category=men">男裝</a>
+          <span class="header__nav__line"></span>
+          <a class="header__nav" id="nav__acc" href="?category=accessories"
+            >配件</a
+          >
+        </div>
+      </div>
+      <div class="banner"></div>
+      <main>
+        <div class="main__container"></div>
+      </main>
+      <div class="desktop__footer">
+        <footer>
+          <div class="footer__container">
+            <ul>
+              <a href="#about">
+                <li>關於 STYLiSH</li>
+              </a>
+              <a href="#termsOfService">
+                <li>服務條款</li>
+              </a>
+              <a href="#privacyPolicy">
+                <li>隱私政策</li>
+              </a>
+              <a href="#contactUs">
+                <li>聯絡我們</li>
+              </a>
+              <a href="#FAQ">
+                <li>FAQ</li>
+              </a>
+            </ul>
+            <div class="footer__logos">
+              <a href="#line">
+                <img class="footer__logo" src="./images/line.png" alt="" />
+              </a>
+              <a href="#twitter">
+                <img class="footer__logo" src="./images/twitter.png" alt="" />
+              </a>
+              <a href="#facebook">
+                <img class="footer__logo" src="./images/facebook.png" alt="" />
+              </a>
+            </div>
+            <p class="footer__copyright">© 2018. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+      <div class="mobile__footer">
+        <div class="mobile__footer__content">
+          <div class="mobile__footer__container">
+            <div class="mobile__footer__navs">
+              <a href="#about">關於 STYLiSH</a>
+              <a href="#termsOfService">服務條款</a>
+              <a href="#privacyPolicy">隱私政策</a>
+            </div>
+            <div class="mobile__footer__navs">
+              <a href="#contactUs">聯絡我們</a>
+              <a href="#FAQ">FAQ</a>
+            </div>
+            <div>
+              <div class="mobile__footer__logos">
+                <a href="#line"
+                  ><img
+                    class="mobile__footer__logo"
+                    src="./images/line.png"
+                    alt=""
+                /></a>
+                <a href="#twitter"
+                  ><img
+                    class="mobile__footer__logo"
+                    src="./images/twitter.png"
+                    alt=""
+                /></a>
+                <a href="#facebook"
+                  ><img
+                    class="mobile__footer__logo"
+                    src="./images/facebook.png"
+                    alt=""
+                /></a>
+              </div>
+            </div>
+          </div>
+          <p class="mobiler__footer__copyright">© 2018. All rights reserved.</p>
+        </div>
+      </div>
+      <div class="mobile__buttons__fixed">
+        <div class="mobile__footer__buttons">
+          <div class="mobile__footer_cart">
+            <div class="mobile__cart__container">
+              <a href="/cart">
+                <img
+                  class="footer__button"
+                  src="./images/cart-mobile.png"
+                  alt=""
+                />
+              </a>
+              <span class="mobile__cart__amount">1</span>
+            </div>
+            <p class="footer__button__text">購物車</p>
+          </div>
+          <span class="mobile__footer__line"></span>
+          <div class="mobile__footer__member">
+            <a href="/profile">
+              <img
+                class="footer__button"
+                src="./images/member-mobile.png"
+                alt=""
+              />
+            </a>
+            <p class="footer__button__text">會員</p>
+          </div>
+        </div>
+      </div>
+      <script type="module" src="script.js"></script>
+    </div>
+  </body>
+</html>
