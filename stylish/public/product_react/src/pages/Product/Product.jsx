@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import getData from "../../API/getData";
-import useFetch from "../../hooks/useFetch";
-import getParameter from "../../utils/getParameter";
+import getData from '../../API/getData';
+import useFetch from '../../hooks/useFetch';
+import getParameter from '../../utils/getParameter';
 
 import {
   ProductContainer,
@@ -35,9 +35,9 @@ import {
   ProductIMG,
   Loading,
   QuantityTextMax,
-} from "./Product.style";
+} from './Product.style';
 
-const id = getParameter("id");
+const id = getParameter('id');
 const fetchData = getData.getProductDetail(id || 201807201824);
 //test = 201807201824
 
@@ -56,44 +56,43 @@ export const Product = ({ totalQuantity, setTotalQuantity }) => {
   // ----------------------------------------hook-----------------------
 
   const getDetails = (detail, value) => {
-    setDetails(prev => {
+    setDetails((prev) => {
       const newDetails = { ...prev };
       newDetails[detail] = value;
       return newDetails;
     });
   };
 
-  const getVariants = color => {
-    const variant = data.variants.filter(item => item["color_code"] === color);
+  const getVariants = (color) => {
+    const variant = data.variants.filter((item) => item['color_code'] === color);
     setCurVariants(variant);
   };
 
   const createElement = () => {
-    const colors = data?.colors.map(color => (
+    const colors = data?.colors.map((color) => (
       <Colors
         color={`#${color.code}`}
         code={color.code}
         key={color.code}
         onClick={() => {
-          getDetails("color", color.code);
-          getDetails("colorName", color.name);
+          getDetails('color', color.code);
+          getDetails('colorName', color.name);
           getVariants(color.code);
           setQuantity(0);
         }}
         $active={color.code === details.color}
       ></Colors>
     ));
-    const sizes = data?.sizes.map(size => (
+    const sizes = data?.sizes.map((size) => (
       <Size
         key={size}
         onClick={() => {
-          getDetails("size", size);
+          getDetails('size', size);
           setQuantity(0);
         }}
         $active={size === details.size}
         $available={
-          details.color &&
-          curVariants.filter(item => item.size === size)[0]?.stock !== 0
+          details.color && curVariants.filter((item) => item.size === size)[0]?.stock !== 0
         }
       >
         {size}
@@ -106,25 +105,21 @@ export const Product = ({ totalQuantity, setTotalQuantity }) => {
   };
 
   const plus = () => {
-    const stock = curVariants?.filter(item => item.size === details.size)[0]
-      ?.stock;
-    if (details.color && stock)
-      setQuantity(prev => (prev + 1 > stock ? stock : prev + 1));
+    const stock = curVariants?.filter((item) => item.size === details.size)[0]?.stock;
+    if (details.color && stock) setQuantity((prev) => (prev + 1 > stock ? stock : prev + 1));
   };
 
   const minus = () => {
-    setQuantity(prev => (prev - 1 < 0 ? 0 : prev - 1));
+    setQuantity((prev) => (prev - 1 < 0 ? 0 : prev - 1));
   };
 
-  const storeData = key => {
-    const localStorageData =
-      JSON.parse(localStorage.getItem("productData")) || [];
-    const localStorageQuantity =
-      JSON.parse(localStorage.getItem("storeQuantity")) || 0;
+  const storeData = (key) => {
+    const localStorageData = JSON.parse(localStorage.getItem('productData')) || [];
+    const localStorageQuantity = JSON.parse(localStorage.getItem('storeQuantity')) || 0;
 
     const allData = {
       [key]: {
-        key: localStorageData.length,
+        key: data.id + details.color + details.size,
         title: data.title,
         price: data.price,
         image: data.main_image,
@@ -132,15 +127,15 @@ export const Product = ({ totalQuantity, setTotalQuantity }) => {
         colorName: details.colorName,
         size: details.size,
         quantity: quantity,
-        stock: curVariants.filter(item => item.size === details.size)[0]?.stock,
+        stock: curVariants.filter((item) => item.size === details.size)[0]?.stock,
       },
     };
     localStorageData.push(allData);
 
     const allQuantity = +localStorageQuantity + quantity;
 
-    localStorage.setItem("productData", JSON.stringify(localStorageData));
-    localStorage.setItem("storeQuantity", JSON.stringify(allQuantity));
+    localStorage.setItem('productData', JSON.stringify(localStorageData));
+    localStorage.setItem('storeQuantity', JSON.stringify(allQuantity));
   };
 
   //todo v2(not finish)
@@ -164,13 +159,9 @@ export const Product = ({ totalQuantity, setTotalQuantity }) => {
   // };
 
   const addToCart = () => {
-    if (
-      details.hasOwnProperty("color") &&
-      details.hasOwnProperty("size") &&
-      quantity !== 0
-    ) {
+    if (details.hasOwnProperty('color') && details.hasOwnProperty('size') && quantity !== 0) {
       storeData(data.id);
-      setTotalQuantity(totalQuantity => totalQuantity + quantity);
+      setTotalQuantity((totalQuantity) => totalQuantity + quantity);
       setDetails({});
       setQuantity(0);
     }
@@ -218,8 +209,7 @@ export const Product = ({ totalQuantity, setTotalQuantity }) => {
                 </QuantityMenu>
                 <QuantityTextMax
                   $active={
-                    curVariants?.filter(item => item.size === details.size)[0]
-                      ?.stock === quantity
+                    curVariants?.filter((item) => item.size === details.size)[0]?.stock === quantity
                   }
                 >
                   已達最大庫存

@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { MEDIA_QUERY_MD } from "../styles/style";
+import styled from 'styled-components';
+import { MEDIA_QUERY_MD } from '../styles/style';
 
-const black = "#313538";
-const brown = "#8b572a";
+const black = '#313538';
+const brown = '#8b572a';
 
 export const HeaderContent = styled.div`
   position: sticky;
